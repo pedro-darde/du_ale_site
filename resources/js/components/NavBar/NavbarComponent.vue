@@ -1,13 +1,9 @@
 <template>
-$END$
+    <button class="btn btn-primary"> clica aqui </button>
 </template>
 
-<script>
-export default {
-name: "NavbarComponent"
-}
-</script>
+<script src="./script.js"></script>
 
-<style scoped>
+<style scoped src="./styles.scss" lang="scss">
 
 </style>

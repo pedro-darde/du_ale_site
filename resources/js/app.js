@@ -15,9 +15,6 @@ import * as bootstrap from 'bootstrap'
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -27,6 +24,7 @@ app.component('example-component', ExampleComponent);
  */
 
 Object.entries(import.meta.globEager('./**/*.vue')).forEach(([path, definition]) => {
+    console.log(path)
     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
 });
 
