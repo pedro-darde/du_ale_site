@@ -19,6 +19,7 @@
                 @yield('content')
             </div>
         </section>
+        <footer-component> </footer-component>
     </div>
 </body>
 
