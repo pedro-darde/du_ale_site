@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import { createApp } from 'vue';
-import '../sass/app.scss'
-import * as bootstrap from 'bootstrap'
+import { createApp } from "vue";
+import "../sass/app.scss";
+import * as bootstrap from "bootstrap";
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -23,10 +23,17 @@ const app = createApp({});
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Object.entries(import.meta.globEager('./**/*.vue')).forEach(([path, definition]) => {
-    console.log(path)
-    app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-});
+Object.entries(import.meta.globEager("./**/*.vue")).forEach(
+    ([path, definition]) => {
+        app.component(
+            path
+                .split("/")
+                .pop()
+                .replace(/\.\w+$/, ""),
+            definition.default
+        );
+    }
+);
 
 /**
  * Finally, we will attach the application instance to a HTML element with
@@ -34,4 +41,4 @@ Object.entries(import.meta.globEager('./**/*.vue')).forEach(([path, definition])
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#app');
+app.mount("#app");

@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
 @section('title')
-    Home Page
+    Área admninistradora - Logar
 @endsection
 
 @section('content')
-    <home> </home>
+    <login-component> </login-component>
 @endsection
