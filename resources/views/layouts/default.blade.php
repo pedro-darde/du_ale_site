@@ -24,3 +24,7 @@
 </body>
 
 </html>
+
+<script type="js">
+window.csrf_token = {!! csrf_token() !!}
+</script>

@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::post('/login', [AdminLoginController::class, 'login']);
+
 Route::namespace('Admin')
     ->prefix('admin')
     ->group(function () {

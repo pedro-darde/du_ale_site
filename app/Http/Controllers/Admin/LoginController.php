@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 class LoginController extends Controller
@@ -22,6 +23,15 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // auth()->login($user, true);
+        dd('aqui');
+        // $this->validateLogin($request);
+
+        $credentials = $request->only('email', 'password');
+
+
+        dd($credentials);
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/admin/dashboard');
+        }
     }
 }

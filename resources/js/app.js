@@ -3,10 +3,10 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+//  import 'vite/dynamic-import-polyfill';
 import { createApp } from "vue";
 import "../sass/app.scss";
-import * as bootstrap from "bootstrap";
+import "./bootstrap";
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready

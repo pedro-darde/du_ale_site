@@ -1,4 +1,4 @@
-import imageMixin from '../../../mixins/images-mixin'
+import imageMixin from "../../../mixins/images-mixin";
 export default {
     mixins: [imageMixin],
     name: "LoginComponent",
@@ -14,10 +14,7 @@ export default {
     },
     methods: {
         login() {
-            this.errors = {
-                email: "aaaaaaaaaaaaa",
-                password: "aaaaaaaaa",
-            };
+            axios.post("login", { email: this.email, password: this.password });
         },
     },
 };
