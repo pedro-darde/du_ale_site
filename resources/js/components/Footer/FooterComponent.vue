@@ -11,7 +11,7 @@
         border-top
       "
     >
-      <p class="col-md-4 mb-0 text-muted">© 2021 Company, Inc</p>
+      <p class="col-md-4 mb-0 text-muted">Duale Churrasqueiras e Parrillas</p>
 
       <a
         href="/"
@@ -26,26 +26,24 @@
           text-decoration-none
         "
       >
-        <svg class="bi me-2" width="40" height="32">
-          <img :src="imageLogo" />
-        </svg>
+          <img :src="logoImage" alt="Logo Image"
+               width="40"
+               height="34"
+               class="d-inline-block align-text-top rounded" />
       </a>
 
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Home</a>
+          <a href="/" class="nav-link px-2 text-muted">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Features</a>
+          <a href="#" class="nav-link px-2 text-muted">Facebook</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          <a href="#" class="nav-link px-2 text-muted">WhatsApp</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">FAQs</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">About</a>
+          <a href="#" class="nav-link px-2 text-muted">Instagram</a>
         </li>
       </ul>
     </footer>

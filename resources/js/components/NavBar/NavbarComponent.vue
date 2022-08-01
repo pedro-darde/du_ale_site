@@ -9,7 +9,7 @@
           height="24"
           class="d-inline-block align-text-top rounded"
         />
-        DuAle Churrasqueiras
+        Duale Churrasqueiras e Parrillas
       </a>
     </div>
   </nav>

@@ -1,7 +1,4 @@
+import logoImageMixin from "../../mixins/logo-image-mixin";
 export default {
-    computed: {
-        logoImage() {
-            return window.location.origin + "/assets/images/logo-image.jpeg";
-        },
-    },
+  mixins: [logoImageMixin]
 };

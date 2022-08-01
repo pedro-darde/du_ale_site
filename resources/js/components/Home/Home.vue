@@ -1,5 +1,5 @@
 <template>
-  <div class="containter">
+  <div class="containter mt-5">
     <h2 class="text-center p-2">Site em construção!</h2>
     <img
       :src="logoImage"
