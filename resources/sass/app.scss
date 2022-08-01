@@ -1,8 +1,24 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+//FontAweose
+@import "font-awesome/scss/font-awesome.scss";
+
+body {
+    background: #ffff;
+}
+
+.btn-duale {
+    background-color: $primary_color !important;
+    color: white;
+    font-weight: bold;
+    &:hover {
+        color: white;
+    }
+}

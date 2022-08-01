@@ -1,4 +1,6 @@
+import imageMixin from '../../../mixins/images-mixin'
 export default {
+    mixins: [imageMixin],
     name: "LoginComponent",
     data() {
         return {

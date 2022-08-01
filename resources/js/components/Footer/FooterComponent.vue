@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container fixed-bottom">
     <footer
       class="
         d-flex
@@ -34,16 +34,16 @@
 
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item">
-          <a href="/" class="nav-link px-2 text-muted">Home</a>
+          <a href="/" class="nav-link px-2 text-muted"><i class="fa fa-home m-2"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Facebook</a>
+          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-facebook m-2"></i>Facebook</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">WhatsApp</a>
+          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-whatsapp m-2"></i>WhatsApp</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Instagram</a>
+          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-instagram m-2"></i>Instagram</a>
         </li>
       </ul>
     </footer>

@@ -1,4 +1,4 @@
-import logoImageMixin from "../../mixins/logo-image-mixin";
+import logoImageMixin from "../../mixins/images-mixin";
 export default {
   mixins: [logoImageMixin]
 };

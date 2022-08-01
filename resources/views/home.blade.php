@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-    Home Page
+    DuAle Churrasqueiras
 @endsection
 
 @section('content')
