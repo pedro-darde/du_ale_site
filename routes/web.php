@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\UsersController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::post('/login', [AdminLoginController::class, 'login']);
-
-Route::namespace('Admin')
-    ->prefix('admin')
-    ->group(function () {
-        Route::get('/login', [AdminLoginController::class, 'index'])->name('login');
-    });
-
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('admin/criar-usuario', [UsersController::class, 'create'])->name('admin.create');
+Route::get('/home', function () {
+    return view('home');
 });
+
