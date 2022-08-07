@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/products', [ProductController::class, 'list']);
+Route::get('/product/{product}', [ProductController::class, 'get']);

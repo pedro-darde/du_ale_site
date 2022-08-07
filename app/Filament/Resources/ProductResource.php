@@ -3,18 +3,20 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
+use App\Filament\Resources\ProductResource\Widgets\ProductStats;
 use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TextInput\Mask;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class ProductResource extends Resource
 {
@@ -24,25 +26,39 @@ class ProductResource extends Resource
 
     protected static ?string $navigationLabel = 'Produtos';
 
-    protected static ?string $modelLabel = 'AAAAAAAAAAA';
-
+    protected static ?string $modelLabel = 'Produtos';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(true)->type('string')->label('Nome do Produto'),
-                Forms\Components\TextInput::make('price')
-                    ->numeric()
-                    ->mask(fn(Mask $mask) => $mask
+                Card::make([
+                    Forms\Components\TextInput::make('name')->required(true)->lazy()->label('Nome do Produto'),
+                    Forms\Components\TextInput::make('price')
                         ->numeric()
-                        ->decimalPlaces(2) // Set the number of digits after the decimal point.
-                        ->decimalSeparator(',') // Add a separator for decimal numbers.
-                        ->normalizeZeros() // Append or remove zeros at the end of the number.
-                        ->thousandsSeparator('.') // Add a separator for thousands.
-                    )->label('Preço'),
-                Textarea::make('description')->required(true)->label('Descrição'),
-                Forms\Components\Checkbox::make('in_stok')->required(false)->default(true)->label('Disponível em estoque')
+                        ->mask(
+                            fn(Mask $mask) => $mask
+                                ->numeric()
+                                ->decimalPlaces(2) // Set the number of digits after the decimal point.
+                                ->decimalSeparator(',') // Add a separator for decimal numbers.
+                                ->normalizeZeros() // Append or remove zeros at the end of the number.
+                                ->thousandsSeparator('.') // Add a separator for thousands.
+                        )->label('Preço'),
+                    Forms\Components\Checkbox::make('in_stock')->required(false)->default(true)->label('Disponível em estoque'),
+                    Textarea::make('description')->required(false)->label('Descrição')->helperText('Escreva um pouco sobre o produto'),
+                    Forms\Components\Section::make('Imagens')
+                        ->schema([
+                            SpatieMediaLibraryFileUpload::make('media')
+                                ->collection('product-images')
+                                ->image()
+                                ->multiple()
+                                ->disableLabel()
+                                ->enableDownload()
+                                ->enableOpen()
+
+                        ])
+                        ->collapsible()
+                ])
             ]);
     }
 
@@ -50,13 +66,20 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('id')->sortable()->label('#'),
+                TextColumn::make('name')->sortable()->label('Nome'),
+                TextColumn::make('description')->sortable()->label('Descrição'),
+                BooleanColumn::make('in_stock')->label('Em estoque'),
+                SpatieMediaLibraryImageColumn::make('product-image')
+                    ->label('Imagem')
+                    ->collection('product-images'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->label('Editar'),
+                Tables\Actions\ViewAction::make()->label('Visualizar')->modalHeading('Visualizar Produto'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -70,6 +93,13 @@ class ProductResource extends Resource
         ];
     }
 
+    public static function getWidgets(): array
+    {
+        return [
+            ProductStats::class,
+        ];
+    }
+
     public static function getPages(): array
     {
         return [
@@ -78,4 +108,6 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
+
+
 }

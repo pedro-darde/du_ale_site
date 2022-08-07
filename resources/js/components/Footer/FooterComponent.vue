@@ -1,5 +1,5 @@
 <template>
-  <div class="container fixed-bottom">
+  <div class="container">
     <footer
       class="
         d-flex

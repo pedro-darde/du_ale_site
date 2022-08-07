@@ -4,9 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 //  import 'vite/dynamic-import-polyfill';
-import { createApp } from "vue";
+import {createApp} from "vue";
 import "../sass/app.scss";
 import "./bootstrap";
+import 'vue3-carousel/dist/carousel.css';
+
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
@@ -34,6 +36,14 @@ Object.entries(import.meta.globEager("./**/*.vue")).forEach(
         );
     }
 );
+app.config.globalProperties.$filters = {}
+
+Object.entries(import.meta.globEager('./filters/**')).forEach(
+    ([path, definition]) => {
+        app.config.globalProperties.$filters[path.split("/").pop().split(".")[0]] = definition.default
+    }
+)
+
 
 /**
  * Finally, we will attach the application instance to a HTML element with
