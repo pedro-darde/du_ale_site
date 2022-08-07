@@ -8,6 +8,7 @@ import {createApp} from "vue";
 import "../sass/app.scss";
 import "./bootstrap";
 import 'vue3-carousel/dist/carousel.css';
+import 'vueperslides/dist/vueperslides.css'
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -50,5 +51,6 @@ Object.entries(import.meta.globEager('./filters/**')).forEach(
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
+
 
 app.mount("#app");
