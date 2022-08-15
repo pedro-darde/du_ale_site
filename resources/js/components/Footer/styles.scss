@@ -1,0 +1,10 @@
+@import "../../../sass//variables";
+footer {
+    background-color: $transiction_flame_color !important;
+    padding: 1rem !important;
+    border-radius: 5px !important;
+    a,p {
+        color: $white_color !important;
+    }
+
+}

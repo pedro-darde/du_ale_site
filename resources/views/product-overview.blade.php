@@ -5,5 +5,8 @@
 @endsection
 
 @section('content')
-    <product-overview :product="{{ $product }}"></product-overview>
+    <script>
+        window.product = {!! json_encode($product) !!}
+    </script>
+    <product-overview></product-overview>
 @endsection

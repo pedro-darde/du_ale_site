@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8 w/o">
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -17,6 +17,11 @@
         <section>
             <div id="corpo_pagina">
                 @yield('content')
+            </div>
+            <div class="floating-actions">
+                <button title="Filtros" class="btn btn-lg circular bg-success text-white">
+                    <i class="fa fa-whatsapp"></i>
+                </button>
             </div>
         </section>
         <footer-component> </footer-component>

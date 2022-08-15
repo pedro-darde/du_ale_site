@@ -11,7 +11,7 @@
 @import "font-awesome/scss/font-awesome.scss";
 
 body {
-    background: #ffff;
+    background: rgba(251, 199, 104, 0.905);
 }
 
 .btn-duale {
@@ -25,4 +25,20 @@ body {
 
 .bg-duale {
     background-color: $flame_color !important;
+}
+
+.bg-dark {
+    background-color: #212529 !important;
+}
+
+.floating-actions {
+    align-items: flex-end;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-end;
+    margin: 1.25em;
+    position: fixed;
+    right: 0;
 }

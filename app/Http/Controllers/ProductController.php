@@ -17,6 +17,7 @@ class ProductController extends Controller
     public function get(Product $product)
     {
         $product->load('media');
+        $product->iconClass = 'fa fa-star p-2';
         return view('product-overview', compact('product'));
     }
 }
