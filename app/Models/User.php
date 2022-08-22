@@ -36,6 +36,10 @@ class User extends Authenticatable implements FilamentUser, HasName
         'remember_token',
     ];
 
+
+    const USER_ROLE_LABEL = 'Usuário Padrão';
+    const ADMIN_ROLE_LABEL = 'Administrador';
+
     /**
      * The attributes that should be cast.
      *
@@ -55,7 +59,8 @@ class User extends Authenticatable implements FilamentUser, HasName
         return $this->role === 'ADMIN';
     }
 
-    public function getFilamentName() : string {
+    public function getFilamentName(): string
+    {
         return $this->name;
     }
 }
