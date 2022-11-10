@@ -14,7 +14,7 @@ export default {
     methods: {
         fetchProducts() {
             axios
-                .get("/products")
+                .get("api/products")
                 .then((res) => {
                     const data = res.data.products;
                     this.products = data.map((item) => ({

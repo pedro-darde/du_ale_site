@@ -37,13 +37,10 @@
           <a href="/" class="nav-link px-2 text-muted"><i class="fa fa-home m-2"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-facebook m-2"></i>Facebook</a>
+          <a href="#" class="nav-link px-2 text-muted" @click="askAbout"><i class="fa fa-whatsapp m-2"></i>WhatsApp</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-whatsapp m-2"></i>WhatsApp</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted"><i class="fa fa-instagram m-2"></i>Instagram</a>
+          <a :href="INSTAGRAM_URL" class="nav-link px-2 text-muted"><i class="fa fa-instagram m-2"></i>Instagram</a>
         </li>
       </ul>
     </footer>

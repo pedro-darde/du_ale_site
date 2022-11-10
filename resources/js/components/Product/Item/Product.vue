@@ -1,6 +1,6 @@
 <template>
   <div class="card m-2 product bg-dark text-center">
-    <h4 class="card-header p-4">{{ product.name }}</h4>
+    <h5 class="card-header p-4 text-uppercase">{{ product.name }}</h5>
     <div class="card-image">
       <img
         v-if="product.media.length"
@@ -10,7 +10,7 @@
       />
     </div>
     <div class="card-body">
-      <h5 class="card-title text-black-50">
+      <h5 class="card-title text-black text-uppercase">
         {{ $filters.currency_format(product.price) }}
       </h5>
       <p class="card-text">{{ product.description }}</p>

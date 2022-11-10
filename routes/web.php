@@ -25,5 +25,4 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/products', [ProductController::class, 'list']);
 Route::get('/product/{product}', [ProductController::class, 'get']);

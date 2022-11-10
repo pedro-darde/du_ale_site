@@ -1,5 +1,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;900&display=swap');
 
 // Variables
 @import "variables";
@@ -12,12 +13,14 @@
 
 body {
     background: rgba(251, 199, 104, 0.905);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .btn-duale {
     background-color: $primary_color !important;
     color: white;
     font-weight: bold;
+
     &:hover {
         color: white;
     }
