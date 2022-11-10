@@ -26,6 +26,7 @@ export default {
         },
     },
     created() {
+        console.log(this.product)
         this.product.iconClass = favoriteSerive.exists(this.product.id)
             ? "fa fa-star p-2"
             : "fa fa-star-o p-2";
