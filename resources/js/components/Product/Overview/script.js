@@ -1,16 +1,17 @@
 import imagesMixin from "../../../mixins/images-mixin";
 import whatsAppMixin from "../../../mixins/whats-app-mixin";
-import { favoriteSerive } from "../../../services/favorite-service";
+import {favoriteSerive} from "../../../services/favorite-service";
 import ImageCarousel from "../Carousel/ImageCarousel.vue";
+
 export default {
     mixins: [imagesMixin, whatsAppMixin],
     components: {
         "image-carousel": ImageCarousel,
     },
-    data() {
-        return {
-            product: window.product,
-        };
+    props: {
+        product: {
+            required: true
+        }
     },
     methods: {
         favorite() {
