@@ -5,27 +5,20 @@ export default {
     components: {
         product: Product,
     },
+    props: {
+        products: {
+            required: true,
+        },
+        line: {
+            required: true,
+        },
+    },
     data() {
         return {
-            products: [],
             test: localStorage.favorites,
         };
     },
     methods: {
-        fetchProducts() {
-            axios
-                .get("api/products")
-                .then((res) => {
-                    const data = res.data.products;
-                    this.products = data.map((item) => ({
-                        ...item,
-                        iconClass: favoriteSerive.exists(item.id)
-                            ? "fa fa-star p-2"
-                            : "fa fa-star-o p-2",
-                    }));
-                })
-                .catch((err) => {});
-        },
         onIconChange({ iconClass, id }) {
             const productToChange = this.products.find(
                 (item) => item.id === id
@@ -40,7 +33,6 @@ export default {
         },
     },
     mounted() {
-        this.fetchProducts();
         this.emitter.on("favorite-removed", this.onFavoriteRemoved);
     },
     watch: {

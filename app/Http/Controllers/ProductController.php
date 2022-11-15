@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function list(Request $request)
+    public function list($line)
     {
         $products = Product::with(['media'])->where('in_stock', true)->get();
-
-        return response()->json(['products' => $products]);
+        return view('products', compact('line', 'products'));
     }
 
     public function get(Product $product)

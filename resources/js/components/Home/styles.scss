@@ -1,3 +1,4 @@
+@import "../../../../resources/sass/variables";
 .logo-img {
     height: 400px;
     width: 500px;
@@ -13,4 +14,13 @@
     margin: 1.25em;
     position: fixed;
     right: 0;
+}
+
+hr {
+    padding: 0.05rem;
+    margin: 1rem 2rem;
+    color: inherit;
+    border: 0;
+    opacity: 0.25;
+    border-color: $primary_color !important;
 }

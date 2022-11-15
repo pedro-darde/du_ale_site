@@ -26,3 +26,4 @@ Route::get('/home', function () {
 });
 
 Route::get('/product/{product}', [ProductController::class, 'get']);
+Route::get('/products/{line}', [ProductController::class, 'list']);
