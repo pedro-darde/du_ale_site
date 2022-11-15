@@ -5,6 +5,6 @@
 @endsection
 
 @section('content')
-    <product-list :products="{{ $products }}" line="{{ $line }}">
-    </product-lis>
-@endsection
+    <product-list :products=" {{ $products }} " line="{{ $line }}">
+        </product-lis>
+    @endsection
