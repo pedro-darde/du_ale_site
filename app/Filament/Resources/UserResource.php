@@ -51,6 +51,14 @@ class UserResource extends Resource
                 TextColumn::make('id')->sortable()->label('#'),
                 TextColumn::make('name')->sortable()->label('Nome'),
                 TextColumn::make('role')->sortable()->label('Perfil')
+                    ->getStateUsing(function ($record) {
+                        $map = [
+                            'ADMIN' => 'Administrador',
+                            'USER' => 'Usuário Padrão'
+                        ];
+
+                        return $map[$record->role];
+                    })
             ])
             ->filters([
                 SelectFilter::make('role')

@@ -9,7 +9,10 @@ class ProductController extends Controller
 {
     public function list($line)
     {
-        $products = Product::with(['media'])->where('in_stock', true)->get();
+        $products = Product::with(['media'])
+            ->where('in_stock', true)
+            ->where('company_slug', $line)
+            ->get();
         return view('products', compact('line', 'products'));
     }
 

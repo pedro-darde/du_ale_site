@@ -17,6 +17,8 @@ use Filament\Tables\Columns\BooleanColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Illuminate\Database\Eloquent\Model;
 
 class ProductResource extends Resource
 {
@@ -34,10 +36,12 @@ class ProductResource extends Resource
             ->schema([
                 Card::make([
                     Forms\Components\TextInput::make('name')->required(true)->lazy()->label('Nome do Produto'),
+                    Forms\Components\Select::make('company_slug')
+                        ->options(Product::$COMPANY_OPTIONS)->required()->label('Empresa'),
                     Forms\Components\TextInput::make('price')
                         ->numeric()
                         ->mask(
-                            fn(Mask $mask) => $mask
+                            fn (Mask $mask) => $mask
                                 ->numeric()
                                 ->decimalPlaces(2) // Set the number of digits after the decimal point.
                                 ->decimalSeparator(',') // Add a separator for decimal numbers.
@@ -73,13 +77,20 @@ class ProductResource extends Resource
                 SpatieMediaLibraryImageColumn::make('product-image')
                     ->label('Imagem')
                     ->collection('product-images'),
+                Tables\Columns\TextColumn::make('company_slug')
+                    ->label('Empresa')
+                    ->getStateUsing(function (Model $record) {
+                        return $record->company;
+                    })
             ])
             ->filters([
-                //
+                SelectFilter::make('company_slug')
+                    ->options(Product::$COMPANY_OPTIONS)->label('Empresas')
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label('Editar'),
                 Tables\Actions\ViewAction::make()->label('Visualizar')->modalHeading('Visualizar Produto'),
+                Tables\Actions\DeleteAction::make()->label('Remover')
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -108,6 +119,4 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
-
-
 }

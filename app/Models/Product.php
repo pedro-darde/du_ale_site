@@ -18,5 +18,25 @@ class Product extends Model implements HasMedia
         'description',
         'in_stock',
         'name',
+        'company_slug'
     ];
+
+    public const SCHEER_SLUG  = "scheer";
+    public const SG_FACAS_SLUG = "sg-facas";
+    public const GUINDANI_SLUG = "guindani";
+    public const ELTZ_SLUG = "eltz-chopeiras";
+    public const QUATRUN_SLUG  = "quatrun";
+
+    static $COMPANY_OPTIONS  = [
+        self::SCHEER_SLUG => 'Scheer',
+        self::SG_FACAS_SLUG => 'SG - Facas',
+        self::GUINDANI_SLUG => 'Guindani Fogões',
+        self::ELTZ_SLUG => 'Eltz Chopeiras',
+        self::QUATRUN_SLUG => 'Quatrun Lareiras'
+    ];
+
+    public function getCompanyAttribute()
+    {
+        return isset(self::$COMPANY_OPTIONS[$this->company_slug]) ?  self::$COMPANY_OPTIONS[$this->company_slug] : 'Empresa não informada';
+    }
 }

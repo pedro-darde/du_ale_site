@@ -16,7 +16,7 @@
       <p class="card-text">{{ product.description }}</p>
     </div>
     <div class="card-footer d-flex flex-row justify-content-end">
-      <a href="#" @click.prevent="favorite">
+      <a href="#" @click.prevent="favorite"> 
         <i
           :class="product.iconClass"
           title="Visualizar detalhes do produto."
